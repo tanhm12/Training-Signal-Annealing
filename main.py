@@ -58,8 +58,8 @@ def test_criterion(x, y, criterion, print_freq=0.05):
         print('train loss:', np.mean(total_loss))
 
 
-test_criterion(x, y, nn.CrossEntropyLoss())
-# test_criterion(x, y, TSA_CrossEntropyLoss(TSA(num_data/batch_size * epochs, 2)))
+# test_criterion(x, y, nn.CrossEntropyLoss())
+test_criterion(x, y, TSA_CrossEntropyLoss(TSA(T=num_data/batch_size * epochs, K=2)))
 
 
 
