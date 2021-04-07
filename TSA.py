@@ -55,8 +55,10 @@ class TSA:
 
 
 class TSA_CrossEntropyLoss:
-    def __init__(self, tsa: TSA):
+    def __init__(self, tsa: TSA, weight=None):
         self.loss_func = torch.nn.CrossEntropyLoss(reduction='none')
+        if weight is not None:
+            self.loss_func = torch.nn.CrossEntropyLoss(reduction='none', weight=weight)
         self.tsa = tsa
 
         self.current_step = 0
